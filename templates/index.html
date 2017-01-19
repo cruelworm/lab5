@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if type == 'best_members' %}
+        <h2><a href="{% url "index" %}">Отделы</a> Конторы </h2>
+    {% endif %}
+    {% if type == 'all' %}
+            <h2>Отделы <a href="{% url "best_members" %}">Конторы</a></h2>
+    {% endif %}
+    {% for item in members %}
+            <div class="askdrob-question">
+                <div class="row">
+
+
+                        <h3>{{ item.named }}</h3>
+                        <p>{{ item.location }}</p>
+                       <a href="{% url 'members' item.id %}">Сотрудники({{ item.members }})</a>
+                </div>
+            </div>
+    {% endfor %}
+
+{% endblock %}

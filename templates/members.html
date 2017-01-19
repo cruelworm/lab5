@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+                <div class="askdrob-main-question">
+                    <div class="row">
+                            <h3>{{ named }}</h3>
+                            <p>{{ location }}</p>
+                            <p>{{ info }}</p>
+                    </div>
+                </div>
+
+                    <div class="answers">
+                        {% for item in members %}
+                        <div class="askdrob-answer">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="askdrob-avatar-block">
+                                        <img class="avatar" src="/static/images/c2.png"/>
+                                        <p> Nickname </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-10">
+                                    <p>{{ item.mem }}</p>
+                                    <p>{{ item.fullname }}</p>
+                                    <p>{{ item.position }}</p>
+
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                <form action="">
+                  <p><textarea maxlength="200" class="askdrob-newanswer" name="comment" placeholder="Введите ваш ответ здесь"></textarea></p>
+                  <p><input type="submit" value="Ответить"></p>
+                 </form>
+{%  endblock %}
